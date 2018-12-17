@@ -12,7 +12,7 @@
 
  Package.describe({
    name: 'apollinaire:mdx',
-   version: '0.0.1',
+   version: '0.0.2',
    summary: 'Compiler plugin that supports Markdown and MDX files in Meteor',
    git: 'https://github.com/Apollinaire/meteor-mdx',
    documentation: 'README.md',
@@ -22,8 +22,8 @@
    name: 'compile-mdx',
    use: [
      'ecmascript',
-     'babel-compiler',
-     'caching-compiler'
+     'babel-compiler@7.2.3',
+     //'caching-compiler'
    ],
    sources: [
      'compiler.js',
