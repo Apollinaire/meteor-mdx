@@ -2,7 +2,7 @@
  * @Author: Apollinaire Lecocq <apollinaire>
  * @Date:   13-12-18
  * @Last modified by:   apollinaire
- * @Last modified time: 17-12-18
+ * @Last modified time: 22-12-18
  */
  /* eslint-disable no-var, prefer-arrow-callback */
  var packages = [
@@ -12,7 +12,7 @@
 
  Package.describe({
    name: 'apollinaire:mdx',
-   version: '0.0.2',
+   version: '0.0.3',
    summary: 'Compiler plugin that supports Markdown and MDX files in Meteor',
    git: 'https://github.com/Apollinaire/meteor-mdx',
    documentation: 'README.md',
@@ -23,7 +23,7 @@
    use: [
      'ecmascript',
      'babel-compiler@7.2.3',
-     //'caching-compiler'
+     'caching-compiler@1.2.1'
    ],
    sources: [
      'compiler.js',
