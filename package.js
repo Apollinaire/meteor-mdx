@@ -12,8 +12,8 @@
 
  Package.describe({
    name: 'apollinaire:mdx',
-   version: '0.0.3',
-   summary: 'Compiler plugin that supports Markdown and MDX files in Meteor',
+   version: '0.0.4',
+   summary: 'Compiler plugin that supports MDX files in Meteor',
    git: 'https://github.com/Apollinaire/meteor-mdx',
    documentation: 'README.md',
  });
@@ -42,7 +42,7 @@
 
  Package.onTest(function test(api) {
    // api.use(packages, ['server', 'client']);
-   // api.use('swydo:graphql');
+   // api.use('apollinaire:mdx');
    // 
    // api.use([
    //   'meteortesting:mocha',
