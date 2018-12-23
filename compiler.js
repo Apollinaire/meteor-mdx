@@ -2,7 +2,7 @@
  * @Author: Apollinaire Lecocq <apollinaire>
  * @Date:   13-12-18
  * @Last modified by:   apollinaire
- * @Last modified time: 22-12-18
+ * @Last modified time: 23-12-18
  */
 
 import mdx from '@mdx-js/mdx';
@@ -32,6 +32,10 @@ export default class MDXCompiler extends CachingCompiler {
     return inputFile.getSourceHash();
   }
 
+  setDiskCacheDirectory(cacheDir) {
+    this.cacheDirectory = cacheDir;
+  }
+
   /**
    * compileResultSize - required by caching-compiler
    *
@@ -54,7 +58,7 @@ export default class MDXCompiler extends CachingCompiler {
       const content = inputFile.getContentsAsString().trim();
       // mdx takes a string containing an mdx file and returns a string containing an ES6+JSX file.
       // TODO: add the possibility to put options/plugins to mdx if we can get them here. How does the babel compiler see what's in .babelrc?
-      //   var babelrcPath = inputFile.findControlFile(".babelrc"); 
+      //   var babelrcPath = inputFile.findControlFile(".babelrc");
       //   JSON5.parse(inputFile.readAndWatchFile(babelrcPath))
       // see https://github.com/meteor/meteor/blob/0fcc7ddd46d0ef8a278376ba64538210486ab646/packages/babel-compiler/babel-compiler.js#L194
       const jsx = mdx.sync(content);
@@ -66,8 +70,8 @@ import { MDXTag } from '@mdx-js/tag'
 ${jsx}
 `;
 
+      this.babelCompiler.setDiskCacheDirectory(this.cacheDirectory);
       // then we must process this es6 module with babel-compiler
-
       const output = this.babelCompiler.processOneFileForTarget(inputFile, jsxComplete);
 
       // extract the source
