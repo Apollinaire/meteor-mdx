@@ -2,7 +2,7 @@
  * @Author: Apollinaire Lecocq <apollinaire>
  * @Date:   13-12-18
  * @Last modified by:   apollinaire
- * @Last modified time: 23-12-18
+ * @Last modified time: 25-12-18
  */
 
 import mdx from '@mdx-js/mdx';
@@ -32,8 +32,14 @@ export default class MDXCompiler extends CachingCompiler {
     return inputFile.getSourceHash();
   }
 
+  /**
+   * setDiskCacheDirectory - overwrite this function from caching-compiler, to be able to set Babel-Compiler's own cacheDirectory
+   *    
+   * @param  {string} cacheDir the location of the cache directory
+   */   
   setDiskCacheDirectory(cacheDir) {
     this.cacheDirectory = cacheDir;
+    this.babelCompiler.setDiskCacheDirectory(cacheDir);
   }
 
   /**
@@ -70,7 +76,6 @@ import { MDXTag } from '@mdx-js/tag'
 ${jsx}
 `;
 
-      this.babelCompiler.setDiskCacheDirectory(this.cacheDirectory);
       // then we must process this es6 module with babel-compiler
       const output = this.babelCompiler.processOneFileForTarget(inputFile, jsxComplete);
 
