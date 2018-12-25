@@ -2,7 +2,7 @@
  * @Author: Apollinaire Lecocq <apollinaire>
  * @Date:   13-12-18
  * @Last modified by:   apollinaire
- * @Last modified time: 22-12-18
+ * @Last modified time: 25-12-18
  */
  /* eslint-disable no-var, prefer-arrow-callback */
  var packages = [
@@ -12,7 +12,7 @@
 
  Package.describe({
    name: 'apollinaire:mdx',
-   version: '0.0.4',
+   version: '0.0.5',
    summary: 'Compiler plugin that supports MDX files in Meteor',
    git: 'https://github.com/Apollinaire/meteor-mdx',
    documentation: 'README.md',
